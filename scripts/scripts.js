@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // Limpiar los campos de entrada
             taskInput.value = "";
             taskDate.value = "";
-            taskDeadline.value = ""; // Limpiar el campo de plazo
+            taskDeadline.value = ""; 
         } else {
-            alert("Por favor, ingresa una tarea, una fecha y un plazo."); // Mensaje de error si falta algún campo
+            alert("Por favor, ingresa una tarea, una fecha y la importancia."); // Mensaje de error si falta algún campo
         }
     }
 
