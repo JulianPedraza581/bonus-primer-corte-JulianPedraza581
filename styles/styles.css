@@ -1,6 +1,10 @@
+/* Estilos Generales    */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #a08d8d;
+    background-image: url(p1.png);
+    ;
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,10 +13,12 @@ body {
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .container {
     background-color: #dbd1d1;
+    opacity: 90%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,6 +31,8 @@ body {
     font-size: 20px;
     color: #b90b0b;
 }
+
+
 /* Encabezado           */
 
 header h1 {
@@ -45,7 +53,8 @@ header h1 {
 }
 
 #taskInput,
-#taskDate {
+#taskDate,
+#taskDeadline {
     flex: 1;
     padding: 10px;
     border: 1px solid #000000;
@@ -57,7 +66,7 @@ header h1 {
     padding: 10px 20px;
     background-color: #28a745;
     color: #fff;
-    border:1px solid black;
+    border: 1px solid black;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
@@ -65,6 +74,36 @@ header h1 {
 
 #addTaskBtn:hover {
     background-color: #218838;
+}
+
+
+/* Contenedor del Plazo */
+
+.deadline-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/* Botón de Ayuda       */
+
+.deadlineHintBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.deadlineHintBtn:hover {
+    background-color: #0056b3;
 }
 
 
@@ -78,14 +117,15 @@ header h1 {
 
 #taskList li {
     display: flex;
-    gap: 10px; 
+    gap: 10px;
     padding: 10px;
-    border-left: 3px solid #e0e403;
+    position: relative;
+    border-left: 3px solid #e40303;
+    background-color: white;
     border-radius: 3px;
     margin-bottom: 10px;
     font-size: 16px;
 }
-
 
 #taskList li.completed {
     text-decoration: line-through;
@@ -94,21 +134,35 @@ header h1 {
 
 .task-content {
     display: flex;
-    flex-direction: column; 
-    gap: 2px; 
+    flex-direction: column;
+    gap: 2px;
 }
 
 .task-date {
-    background-color: #1f923c;
-    padding: 3px 8px; 
+    background-color: #119ec9;
+    padding: 3px 8px;
     border-radius: 4px;
-    border:1px solid #ffffff;
-    font-size: 12px; 
+    border: 1px solid #ffffff;
+    font-size: 12px;
     color: #ffffff;
-    display: inline-block;
-    margin-top: 2px; 
-    width: fit-content; 
+    display: flex;
+    margin-top: 2px;
+    width: nowrap;
 }
+
+.task-deadline {
+    background-color: #b51dc9;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #ffffff;
+    font-size: 9px;
+    color: #ffffff;
+    display: flex;
+    margin-top: 19px;
+    position: absolute;
+    white-space: nowrap;
+}
+
 
 .deleteBtn {
     background-color: #dc3545;
@@ -118,21 +172,24 @@ header h1 {
     padding: 5px 10px;
     cursor: pointer;
     font-size: 14px;
-    margin-left: auto; 
+    margin-left: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px; 
-    height: 24px; 
+    width: 24px;
+    height: 24px;
 }
 
 .deleteBtn:hover {
     background-color: #c82333;
 }
 
+
+/* Footer               */
+
 footer {
     text-align: center;
-    text-align: end;;
+    text-align: end;
     font-size: 10px;
     color: #b90b0b;
 }
@@ -156,57 +213,103 @@ footer {
 
 
 /* Mobile Portrait (320px x 480px) */
-@media (max-width: 480px) {
-    .container {
-        padding: 15px;
+@media (max-width: 768px) {
+    #taskList li {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        font-size: 14px;
     }
 
-    header h1 {
-        font-size: 20px;
+    .task-deadline {
+        bottom: 17px;
+        right: 40px;
     }
 
-    #taskForm .input-container {
-        flex-direction: column;
+    .task-content {
+        gap: 1px;
     }
 
-    #taskInput,
-    #taskDate {
-        width: auto;
-        margin-bottom: 10px;
+    .task-date {
+        font-size: 10px;
+        padding: 2px 6px;
     }
 
-    #addTaskBtn {
-        width: 100%;
+
+
+    .deleteBtn {
+        font-size: 12px;
+        padding: 4px 8px;
+        width: 20px;
+        height: 20px;
     }
 }
 
-/* Tablet */
-@media (min-width: 481px) and (max-width: 1024px) {
-    #taskForm .input-container {
-        flex-direction: column;
+/* Tablet (481px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #taskList li {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        font-size: 14px;
     }
 
-    #taskInput,
-    #taskDate {
-        width: auto;
+    .task-deadline {
+        bottom: 17px;
+        right: 40px;
     }
 
-    #addTaskBtn {
-        width: auto;
+
+    .task-content {
+        gap: 1px;
+    }
+
+    .task-date {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+
+
+    .deleteBtn {
+        font-size: 12px;
+        padding: 4px 8px;
+        width: 20px;
+        height: 20px;
     }
 }
-/*Desktop*/
+
+/* Desktop */
 @media (min-width: 1025px) {
-    #taskForm .input-container {
-        flex-direction: column;
+    #taskList li {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        font-size: 14px;
     }
 
-    #taskInput,
-    #taskDate {
-        width: auto;
+    .task-deadline {
+        bottom: 17px;
+        right: 40px;
     }
 
-    #addTaskBtn {
-        width: auto;
+    .task-content {
+        gap: 1px;
+    }
+
+    .task-date {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+
+    .deleteBtn {
+        font-size: 12px;
+        padding: 4px 8px;
+        width: 20px;
+        height: 20px;
     }
 }
