@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Mi TODO list</h1>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lista de Tareas</h1>
+        </header>
+
+        <main>
+            <section aria-labelledby="task-form-heading">
+                <h2 id="task-form-heading" class="visually-hidden">Formulario de Tareas</h2>
+                <form id="taskForm">
+                    <div class="input-container">
+                        <label for="taskInput" class="visually-hidden">Nueva tarea</label>
+                        <input type="text" id="taskInput" placeholder="Nueva tarea...">
+                        
+                        <label for="taskDate" class="visually-hidden">Fecha</label>
+                        <input type="text" id="taskDate" placeholder="Fecha (DD/MM HH:MM)">
+                        
+                        <button type="submit" id="addTaskBtn">Agregar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section aria-labelledby="task-list-heading">
+                <h2 id="task-list-heading">Tareas Pendientes</h2>
+                <ul id="taskList"></ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>Julian Andres Pedraza Padilla</p>
+        </footer>
+    </div>
+
     <script src="scripts/script.js"></script>
-  </body>
+</body>
 </html>
