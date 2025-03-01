@@ -30,3 +30,7 @@ El diseño de la aplicación debe ser responsive y adaptarse correctamente a dif
 | Funcionalidad      | 3       |
 
 
+![image](https://github.com/user-attachments/assets/3fb03a67-817b-46a9-a107-1bb223b25a05)
+
+Nombre:Julian Andres Pedraza Padilla
+
